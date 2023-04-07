@@ -1,38 +1,59 @@
-.App {
-  text-align: center;
+.appbody {
+    background-color: black;
+    color: white;
+    height: max-content;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.nav-item {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.nav-item:hover {
+    color: red;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.banner-item {
+    height: 600px;
+    display: flex;
+    align-items: center;
+
 }
 
-.App-link {
-  color: #61dafb;
+.banner-info {
+    width: 40%;
+    color: whitesmoke;
+    margin-left: 30px;
+    z-index: 1;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.banner-item::before {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 600px;
+    content: '';
+    background: linear-gradient(to right, black, transparent);
+}
+
+
+.moviecard {
+    width: 355px;
+    height: 200px;
+
+}
+
+.overlay {
+    opacity: 0;
+    /* background: rgba(53, 51, 51, 0.9); */
+    background: linear-gradient(to right, black, transparent);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+
+.moviecard:hover .overlay {
+    opacity: 1;
 }
