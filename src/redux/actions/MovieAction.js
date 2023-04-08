@@ -19,10 +19,9 @@ function getMovies() {
             const genreApi = api.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`);
 
             let [popularMovies, topRatedMovies, upcomingMovies, genreList] = await Promise.all([movieApiPopular, movieApiTopRated, movieApiUpcoming, genreApi]);
-
             dispatch({
                 type: "GET_MOVIES_SUCCESS",
-                payload: { popularMovies: popularMovies.data, topRatedMovies: topRatedMovies.data, upcomingMovies: upcomingMovies.data, genreList: genreList.genres }
+                payload: { popularMovies: popularMovies.data, topRatedMovies: topRatedMovies.data, upcomingMovies: upcomingMovies.data, genreList: genreList.data.genres }
             })
         } catch {
             dispatch({ type: "GET_MOVIES_FAILURE" })
@@ -32,6 +31,28 @@ function getMovies() {
     }
 }
 
+function getMovieDetail({ id }) {
+    return async (dispatch) => {
+        try {
+            const movieApiDetail = api.get(`/movie/${id}?api_key=${API_KEY}&language=en-US`);
+            const movieApiReview = api.get(`/movie/${id}/reviews?api_key=${API_KEY}&language=en-US&page=1`);
+            const movieApiRecommand = api.get(`/movie/${id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`)
+            const movieApiVideo = api.get(`/movie/${id}/videos?api_key=${API_KEY}&language=en-US`)
+
+            let [movieDetail, movieReview, movieRecommand, movieVideo] = await Promise.all([movieApiDetail, movieApiReview, movieApiRecommand, movieApiVideo]);
+            dispatch({
+                type: "GET_MOIVE_DETAIL_REQUEST",
+                payload: { movieDetail: movieDetail.data, movieReview: movieReview.data, movieRecommand: movieRecommand.data, movieVideo: movieVideo.data }
+            })
+
+        } catch {
+            dispatch({ type: "GET_MOVIES_FAILURE" })
+        }
+
+    }
+
+}
+
 export const movieAction = {
-    getMovies,
+    getMovies, getMovieDetail
 }

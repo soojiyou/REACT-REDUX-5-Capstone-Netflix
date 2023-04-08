@@ -7,15 +7,15 @@ import { faFilm, faUsers } from '@fortawesome/free-solid-svg-icons'
 
 
 
-const MovieCard = ({ item }) => {
+const MoviesCard = ({ item }) => {
     const navigate = useNavigate();
     const showMovieDetail = (id) => { navigate(`/movies/${id}`); };
     const { genreList } = useSelector(state => state.movie);
 
     return (
-        <div className='moviecard' onClick={() => showMovieDetail(item.id)} style={{ backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path}` + ")" }}>
+        <div className='movielistcard' onClick={() => showMovieDetail(item.id)} style={{ backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w300_and_h450_bestv2${item.poster_path}` + ")" }}>
 
-            <div className='overlay'>
+            <div className='overlay-moviecard '>
                 <h1>{item.title}</h1>
                 <div>
                     {item.genre_ids.map(id =>
@@ -36,4 +36,4 @@ const MovieCard = ({ item }) => {
 
 
 
-export default MovieCard
+export default MoviesCard

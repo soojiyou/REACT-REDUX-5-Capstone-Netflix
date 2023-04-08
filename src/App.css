@@ -4,6 +4,10 @@
     height: max-content;
 }
 
+.navbarstyle {
+    background-color: black;
+}
+
 .nav-item {
     color: white;
     text-decoration: none;
@@ -51,9 +55,173 @@
     width: 100%;
     height: 100%;
     z-index: 1;
+    transition: all .5s;
 }
+
+.overlay div {
+    padding: 5px 3px;
+}
+
+.overlay h1 {
+    padding: 0 3px;
+}
+
 
 
 .moviecard:hover .overlay {
     opacity: 1;
+}
+
+
+/*MovieDetail*/
+.banner-item-detail {
+    height: 600px;
+    display: flex;
+    align-items: center;
+
+}
+
+
+.movie-detail-container-row {
+    padding: 30px;
+}
+
+/* .movie-extra-container-row {
+    padding: 30px;
+    width: 1000px;
+    text-align: center;
+} */
+
+.movie-detail-img {
+    display: flex;
+    justify-content: right;
+    /* margin-left: 5px; */
+}
+
+.moviecard-detail {
+    width: 400px;
+    height: 600px;
+    background-size: cover;
+
+}
+
+.movie-detail-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    width: 400px;
+}
+
+.movie-detail-row {
+    padding: 5px 0;
+}
+
+.col-arrange {
+    display: flex;
+    flex-direction: row;
+}
+
+.col-arrange div {
+    padding-right: 80px;
+}
+
+.movie-detail-row p {
+    width: 400px;
+    font-size: 13px;
+}
+
+/* .movie-detail-badge {
+    margin-top: 2px;
+} */
+
+.badge {
+    margin: 0 2px;
+}
+
+.movie-detail-title {
+    width: 400px;
+}
+
+.movie-detail-title h1 {
+    width: 100%;
+}
+
+
+.bedge-info-container {
+    width: 400px;
+}
+
+.badge-info {
+    width: 100px;
+}
+
+.adultfont {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+}
+
+.line {
+    border-top: 1px solid whitesmoke;
+    padding: 20px 0;
+    width: 400px;
+}
+
+.moviecard-recommand-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* grid-template-rows: 100px 100px; */
+    grid-gap: 10px;
+    justify-items: center;
+
+
+}
+
+.moviecard-recommand {
+    width: 355px;
+    height: 200px;
+}
+
+.moviecard-recommand:hover .overlay {
+    opacity: 1;
+}
+
+#tabsstyle {
+    color: red;
+}
+
+/*Movies.js*/
+.movielistcard {
+    width: 300px;
+    height: 500px;
+    margin-bottom: 30px;
+    background-size: cover;
+}
+
+.moviecard-list-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+}
+
+
+.moviecard-list-item {
+    padding: 30px;
+
+}
+
+.overlay-moviecard {
+    /* opacity: 0; */
+    /* background: rgba(53, 51, 51, 0.9); */
+    background: linear-gradient(to right, black, transparent);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.movielistcard:hover {
+    width: 330px;
+    height: 550px;
+    transition: all .5s;
 }
