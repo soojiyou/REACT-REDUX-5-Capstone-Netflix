@@ -10,12 +10,12 @@ function MyFilter({ sortByVoteAverageAscending, sortByVoteAverageDescending, sor
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
-    const [showSortOptions, setShowSortOptions] = useState(false);
     const [yearRange, setYearRange] = useState({ min: 1900, max: new Date().getFullYear() });
     const [filteredData, setFilteredData] = useState({});
     const { popularMovies, topRatedMovies, upcomingMovies, loading, movieSearch, genreList } = useSelector(state => state.movie);
-
     const [scoreRange, setScoreRange] = useState({ min: 0, max: 10 });
+    const [selectedGenres, setSelectedGenres] = useState(new Set());
+
 
     const handleYearRangeChange = (newYearRange) => {
         setYearRange(newYearRange);
@@ -42,6 +42,35 @@ function MyFilter({ sortByVoteAverageAscending, sortByVoteAverageDescending, sor
         setSortedMovies(newData);
         setShowSortedResults(true);
     };
+
+    const handleGenreBadgeClick = (genreId) => {
+        const newSelectedGenres = new Set(selectedGenres);
+        if (newSelectedGenres.has(genreId)) {
+            newSelectedGenres.delete(genreId);
+        } else {
+            newSelectedGenres.add(genreId);
+        }
+        setSelectedGenres(newSelectedGenres);
+
+        // Call applyGenreFilter and pass the popularMovies.results
+        const newData = applyGenreFilter([...popularMovies.results]);
+
+        handleFilteredData(newData);
+        setSortedMovies(newData);
+        setShowSortedResults(true);
+    };
+
+    const applyGenreFilter = (data) => {
+        if (selectedGenres.size === 0) return data;
+
+        return data.filter((item) =>
+            item.genre_ids.some((genreId) => selectedGenres.has(genreId))
+        );
+    };
+
+    // You can call this function when you want to apply the genre filter
+
+
     useEffect(() => {
         if (filteredData === true) {
             dispatch(movieAction.getMovies({ activePage: 1 }));
@@ -133,11 +162,17 @@ function MyFilter({ sortByVoteAverageAscending, sortByVoteAverageDescending, sor
                             </form>
                         </div>
                         <div className="nav-dropdown-genre">
-                            Something else
-                            {genreList.map(item =>
-                                <Badge key={item.id} bg="danger">{item.name}</Badge>
-                            )}
-
+                            <label>Genres</label>
+                            {genreList.map((item) => (
+                                <Badge
+                                    key={item.id}
+                                    bg="danger"
+                                    className={selectedGenres.has(item.id) ? 'filterbadge active' : 'filterbadge'}
+                                    onClick={() => handleGenreBadgeClick(item.id)}
+                                >
+                                    {item.name}
+                                </Badge>
+                            ))}
                         </div>
                     </Dropdown.Menu>
                 </Dropdown>
