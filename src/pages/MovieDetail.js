@@ -102,7 +102,8 @@ const MovieDetail = ({ item }) => {
                 <Row className='movie-extra-container-row'>
                     <Tabs className='tabsstyle' defaultActiveKey="Review">
                         <Tab eventKey="Review" title="Review">
-                            <p>{movieReview && movieReview.results && movieReview.results[0].content}</p>
+                            {/* <p>{movieReview && movieReview.results && movieReview.results[0].content}</p> */}
+                            {movieReview && movieReview.results && movieReview.results.map(item => <div className='reviewdiv'><h3 style={{ fontSize: '18px' }}>{item.author}</h3><p>{item.content}</p></div>)}
                         </Tab>
                         <Tab eventKey="RecommandMovie" title="Recommand Movie">
                             <div className='moviecard-recommand-container'>

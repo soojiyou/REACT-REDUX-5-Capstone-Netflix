@@ -4,10 +4,38 @@ import Form from 'react-bootstrap/Form';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
+import { movieAction } from '../redux/actions/MovieAction';
+import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect, useState } from 'react';
+
 
 
 function NavScrollExample() {
+
+    const dispatch = useDispatch();
+    const { movieSearch } = useSelector(state => state.movie);
+    const [keyword, setKeyword] = useState('');
+    const navigate = useNavigate();
+    const location = useLocation();
+
+    const search = (e) => {
+        e.preventDefault();
+        if (keyword) {
+            dispatch(movieAction.getMovieSearch({ query: keyword }));
+        }
+        navigate("/movies");
+    };
+
+    const resetSearch = () => {
+        setKeyword('');
+        dispatch(movieAction.clearMovieSearch());
+        navigate('/movies');
+    };
+    useEffect(() => {
+        // Clear the search state when the location changes
+        setKeyword('');
+    }, [location]);
     return (
         <Navbar className='navbarstyle' expand="lg">
             <Container fluid>
@@ -20,17 +48,19 @@ function NavScrollExample() {
                         navbarScroll
                     >
                         <Link to="/" className='nav-item'>Home</Link>
-                        <Link to="/movies" className='nav-item'>Movies</Link>
+                        <Link to="/movies" className='nav-item' onClick={resetSearch}>Movies</Link>
 
                     </Nav>
-                    <Form className="d-flex">
+                    <Form className="d-flex" onSubmit={search}>
                         <Form.Control
                             type="search"
                             placeholder="Search"
                             className="me-2"
                             aria-label="Search"
+                            value={keyword}
+                            onChange={(e) => setKeyword(e.target.value)}
                         />
-                        <Button variant="outline-danger">Search</Button>
+                        <Button variant="outline-danger" type='submit'>Search</Button>
                     </Form>
                 </Navbar.Collapse>
             </Container>

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { movieAction } from '../redux/actions/MovieAction';
 import { useDispatch, useSelector } from 'react-redux';
 import Banner from '../components/Banner';
@@ -9,9 +9,8 @@ const Home = () => {
     const dispatch = useDispatch();
     const { popularMovies, topRatedMovies, upcomingMovies, loading } = useSelector(state => state.movie);
 
-
     useEffect(() => {
-        dispatch(movieAction.getMovies());
+        dispatch(movieAction.getMovies({ activePage: 1 }));
     }, []);
 
 

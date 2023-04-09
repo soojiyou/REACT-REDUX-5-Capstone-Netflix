@@ -8,6 +8,8 @@ let initialState = {
     movieReview: {},
     movieRecommand: {},
     movieVideo: {},
+    movieSearch: {},
+
 }
 
 function movieReducer(state = initialState, action) {
@@ -26,6 +28,7 @@ function movieReducer(state = initialState, action) {
                 loading: false,
                 genreList: payload.genreList,
 
+
             };
         case "GET_MOIVE_DETAIL_REQUEST":
             return {
@@ -36,6 +39,17 @@ function movieReducer(state = initialState, action) {
                 movieVideo: payload.movieVideo,
                 loading: false,
 
+            }
+        case "GET_MOIVE_SEARCH_REQUEST":
+            return {
+                ...state,
+                movieSearch: payload.movieSearch,
+            }
+
+        case "CLEAR_MOVIE_SEARCH":
+            return {
+                ...state,
+                movieSearch: {},
             }
 
         case "GET_MOVIES_FAILURE":

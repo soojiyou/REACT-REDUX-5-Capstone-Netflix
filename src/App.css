@@ -67,7 +67,6 @@
 }
 
 
-
 .moviecard:hover .overlay {
     opacity: 1;
 }
@@ -190,12 +189,55 @@
     color: red;
 }
 
+.reviewdiv {
+    border-bottom: 1px solid whitesmoke;
+    margin: 20px 5px;
+}
+
+
 /*Movies.js*/
 .movielistcard {
-    width: 300px;
-    height: 500px;
-    margin-bottom: 30px;
+
+    margin: 10px;
     background-size: cover;
+    box-shadow: 8px 8px 20px 10px #530909;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+@media (max-width: 992px) {
+    .movielistcard {
+        width: 200px;
+        height: 350px;
+
+    }
+
+}
+
+@media (min-width: 992px) {
+    .movielistcard {
+        width: 250px;
+        height: 425px;
+
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .movielistcard {
+        width: 300px;
+        height: 500px;
+
+    }
+}
+
+
+
+
+.movielistcard:hover {
+    box-shadow: 4px 8px 20px 10px #a71d13;
+    transform: scale(1.02);
+    transition: all .4s;
 }
 
 .moviecard-list-container {
@@ -218,10 +260,199 @@
     width: 100%;
     height: 100%;
     z-index: 1;
+
 }
 
-.movielistcard:hover {
+.overlay-moviecard h1 {
+    font-size: 1.5rem;
+}
+
+
+/* .movielistcard:hover {
     width: 330px;
     height: 550px;
     transition: all .5s;
+} */
+
+.moviecard-search-containter {
+    margin-top: 2rem;
 }
+
+.moviecard-search-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.moviecard-search-item {}
+
+/*MyFilter*/
+.filter-container {
+    flex-direction: column;
+}
+
+.dropdown-style button,
+.dropdown-style-container button {
+    margin: 5px;
+    width: 200px;
+    text-align: justify;
+    border-color: white;
+    background-color: black;
+    color: white;
+
+}
+
+.dropdown-style button:hover,
+.dropdown-style-container button:hover,
+.dropdown-style-container a:hover {
+    border-color: #a71d13;
+    background-color: black;
+    color: red;
+}
+
+.dropdown-style-container {
+    width: 200px;
+
+}
+
+/* .dropdown-style-nav {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    font-size: 15px;
+    justify-content: center;
+} */
+
+/* .dropdown-style div {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+} */
+.divider {
+    color: white;
+}
+
+.sortdiv {
+    border: 1px solid white;
+    /* width: 200px; */
+    border-color: #a71d13;
+    background-color: black;
+    border-radius: 7px;
+    padding: 2.5rem 2rem;
+    margin: 0 5px;
+    font-size: 16px;
+    color: white;
+}
+
+.sortoptiondiv {
+    font-size: 15px;
+    width: 150px;
+
+}
+
+/* .sortoptiondiv div {
+    border: 1px solid white;
+} */
+
+
+.sortoptiondiv div a {
+    border-bottom: 1px solid white;
+
+    width: 150px;
+    padding: 5px;
+    color: white;
+    font-size: 12px;
+
+}
+
+/* .dropdown-style-nav-item {
+    font-size: 13px;
+    width: 150px;
+} */
+
+.nav-dropdown-style {
+    /* border: 1px solid white; */
+    color: white;
+}
+
+.nav-dropdown-style a {
+    border-bottom: 1px solid white;
+    width: 200px;
+    padding: 5px;
+    color: white;
+    background-color: #a71d13;
+    border-radius: 5px;
+}
+
+
+.dropdown-menu.show,
+.dropdown-menu {
+    /* display: block; */
+    background-color: black;
+    padding: 0;
+}
+
+
+
+
+.filter-dropdown-style.dropdown-menu.show {
+    border: 1px solid #a71d13;
+    margin: 7px 0;
+
+    justify-content: center;
+
+    display: flex;
+    flex-direction: column;
+
+}
+
+.input-range {
+    width: 80% !important;
+    margin: 0 auto;
+}
+
+.input-range__slider {
+    border: 1px solid #dc143c !important;
+}
+
+.input-range-container {
+    padding: 50px 0;
+    border-bottom: 1px solid white;
+    width: 200px;
+    color: white;
+
+
+}
+
+.input-range-container h3 {
+    font-size: 1rem;
+    text-align: center;
+
+}
+
+.input-range-container label {
+    font-size: 1.1rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+.form {
+    margin: 0 auto;
+    padding: 30px 0;
+    color: red;
+
+}
+
+
+.input-range__slider,
+.input-range__track--active {
+    background: #dc143c !important;
+}
+
+.input-range {
+    margin-bottom: 30px;
+    /* background-color: ; */
+}
+
+.nav-dropdown-genre {}

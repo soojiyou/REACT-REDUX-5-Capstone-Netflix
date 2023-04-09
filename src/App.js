@@ -1,5 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import 'react-input-range/lib/css/index.css';
 import { Route, Routes } from 'react-router-dom';
 import MovieDetail from './pages/MovieDetail';
 import Movies from './pages/Movies';
