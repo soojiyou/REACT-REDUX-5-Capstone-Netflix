@@ -21,11 +21,18 @@ import store from "./redux/store";
 // );
 const rootElement = document.getElementById('root');
 
+// ReactDOM.render(
+//   <Provider store={store}>
+//     <BrowserRouter>
+//       <App />
+//     </BrowserRouter>
+//   </Provider>,
+//   rootElement
+// );
+
 ReactDOM.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <App />
   </Provider>,
   rootElement
 );
