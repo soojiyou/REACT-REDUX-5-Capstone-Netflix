@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-input-range/lib/css/index.css';
-import { Route, Routes } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import MovieDetail from './pages/MovieDetail';
 import Movies from './pages/Movies';
 import Home from './pages/Home';
@@ -30,14 +30,15 @@ Plan (making Netflix)
 function App() {
   return (
     <div className='appbody'>
-      <NavigationBar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/movies" element={<Movies />} />
-        <Route path="/movies/:id" element={<MovieDetail />} />
+      <BrowserRouter>
+        <NavigationBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/movies" element={<Movies />} />
+          <Route path="/movies/:id" element={<MovieDetail />} />
 
-      </Routes>
-
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
