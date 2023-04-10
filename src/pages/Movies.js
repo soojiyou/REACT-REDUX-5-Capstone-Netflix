@@ -132,7 +132,7 @@ const Movies = () => {
 
 
                                 {moviesToDisplay && moviesToDisplay.map((item) => (
-                                    <div key={item.id} className="moviecard-search-item">
+                                    <div key={item.id} className="moviecard-card-item">
                                         <MoviesCard item={item} />
                                     </div>
                                 ))}

@@ -283,7 +283,9 @@
     flex-wrap: wrap;
 }
 
-.moviecard-search-item {}
+.moviecard-search-item {
+    padding-top: 40px
+}
 
 /*MyFilter*/
 .filter-container {
