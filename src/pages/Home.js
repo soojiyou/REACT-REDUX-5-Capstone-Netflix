@@ -24,7 +24,9 @@ const Home = () => {
     return (
         <div>
 
-            <Banner movie={popularMovies.results[0]} />
+            {/* <Banner movie={popularMovies.results[0]} /> */}
+            <Banner movie={popularMovies.results && popularMovies.results.length > 0 ? popularMovies.results[0] : {}} />
+
 
             <h1>Popular Movies</h1>
             <MovieSlide movies={popularMovies} />
