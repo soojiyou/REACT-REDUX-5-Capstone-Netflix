@@ -80,34 +80,16 @@ function clearMovieSearch() {
         })
     }
 }
-// function getMovieSorted({ activePage = 1 }) {
-//     return async (dispatch) => {
-//         try {
 
-//             const movieApiPopular = api.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=${activePage}`);
-
-//             const movieApiTopRated = api.get(`/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`);
-
-//             const movieApiUpcoming = api.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=1`);
-
-//             const genreApi = api.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US`);
-
-//             let [movieDetail, movieReview, movieRecommand, movieVideo] = await Promise.all([movieApiPopular, movieApiTopRated, movieApiUpcoming, genreApi]);
-
-//             let 
-
-//             dispatch({
-//                 type: "GET_MOIVE_SORTED_REQUEST",
-//                 payload: { movieSorted: movieSorted.data }
-//             })
-
-//         } catch {
-//             dispatch({ type: "GET_MOVIES_FAILURE" })
-//         }
-
-//     }
-// }
+function setFilteredData({ filteredData }) {
+    return (dispatch) => {
+        dispatch({
+            type: "SET_FILTERED_DATA",
+            payload: { filteredData: filteredData },
+        })
+    }
+}
 
 export const movieAction = {
-    getMovies, getMovieDetail, getMovieSearch, clearMovieSearch
+    getMovies, getMovieDetail, getMovieSearch, clearMovieSearch, setFilteredData
 }

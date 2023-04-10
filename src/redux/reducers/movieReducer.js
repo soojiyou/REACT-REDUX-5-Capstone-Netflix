@@ -2,13 +2,14 @@ let initialState = {
     popularMovies: {},
     topRatedMovies: {},
     upcomingMovie: {},
-    loading: true,
+    loading: false,
     genreList: [],
     movieDetail: {},
     movieReview: {},
     movieRecommand: {},
     movieVideo: {},
     movieSearch: {},
+    filteredData: {},
 
 }
 
@@ -51,6 +52,12 @@ function movieReducer(state = initialState, action) {
                 ...state,
                 movieSearch: {},
             }
+
+        case "SET_FILTERED_DATA":
+            return {
+                ...state,
+                filteredData: action.payload,
+            };
 
         case "GET_MOVIES_FAILURE":
             return {

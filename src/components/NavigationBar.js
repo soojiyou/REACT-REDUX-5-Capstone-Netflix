@@ -19,12 +19,16 @@ function NavScrollExample() {
     const navigate = useNavigate();
     const location = useLocation();
 
+
     const search = (e) => {
         e.preventDefault();
         if (keyword) {
             dispatch(movieAction.getMovieSearch({ query: keyword }));
+            navigate(`/movies?query=${keyword}`);
+        } else {
+            dispatch(movieAction.clearMovieSearch());
+            navigate('/movies');
         }
-        navigate("/movies");
     };
 
     const resetSearch = () => {
@@ -36,6 +40,12 @@ function NavScrollExample() {
         // Clear the search state when the location changes
         setKeyword('');
     }, [location]);
+
+    useEffect(() => {
+        // Reset filteredData when movieSearch changes
+        dispatch(movieAction.setFilteredData({}));
+    }, [movieSearch, dispatch]);
+
     return (
         <Navbar className='navbarstyle' expand="lg">
             <Container fluid>
@@ -49,6 +59,7 @@ function NavScrollExample() {
                     >
                         <Link to="/" className='nav-item'>Home</Link>
                         <Link to="/movies" className='nav-item' onClick={resetSearch}>Movies</Link>
+
 
                     </Nav>
                     <Form className="d-flex" onSubmit={search}>

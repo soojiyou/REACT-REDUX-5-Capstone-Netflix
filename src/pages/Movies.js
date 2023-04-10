@@ -15,10 +15,13 @@ const Movies = () => {
     const navigate = useNavigate();
 
     const [sortedMovies, setSortedMovies] = useState([]);
-    const { popularMovies, topRatedMovies, upcomingMovies, loading, movieSearch } = useSelector(state => state.movie);
+    const { popularMovies, topRatedMovies, upcomingMovies, loading, movieSearch, filteredData } = useSelector(state => state.movie);
     const [activePage, setActivePage] = useState(1);
-    const [showSortedResults, setShowSortedResults] = useState(false);
-    const [filteredData, setFilteredData] = useState([]);
+    const [showSortedResults, setShowSortedResults] = useState(true);
+    const [searchedData, setSearchedData] = useState([]);
+    const [currentDataSource, setCurrentDataSource] = useState('popularMovies');
+
+    const [moviesToDisplay, setMoviesToDisplay] = useState(popularMovies?.results || []);
 
 
     const handlePageChange = (pageNumber) => {
@@ -27,22 +30,7 @@ const Movies = () => {
     };
 
 
-
-    useEffect(() => {
-        dispatch(movieAction.getMovies({ activePage: activePage }));
-    }, [dispatch, activePage]);
-
-
-    useEffect(() => {
-        if (showSortedResults === true) {
-            setSortedMovies(popularMovies.results);
-        }
-
-    }, [showSortedResults]);
-
-
     const sortByAscending = ({ factor }) => {
-        setShowSortedResults(true);
         const sorted = [...popularMovies.results].sort((a, b) => {
             if (factor === 'release_date') {
                 const dateA = new Date(a[factor]);
@@ -52,10 +40,13 @@ const Movies = () => {
             return a[factor] - b[factor];
         });
         setSortedMovies(sorted);
+        setShowSortedResults(true);
+        setCurrentDataSource('sortedMovies');
+
     }
 
+
     const sortByDescending = ({ factor }) => {
-        setShowSortedResults(true);
         const sorted = [...popularMovies.results].sort((a, b) => {
             if (factor === 'release_date') {
                 const dateA = new Date(a[factor]);
@@ -65,93 +56,95 @@ const Movies = () => {
             return b[factor] - a[factor];
         });
         setSortedMovies(sorted);
+        setShowSortedResults(true);
+        setCurrentDataSource('sortedMovies');
+
 
     }
-    // const handleFilteredData = (filteredMovies) => {
-    //     setSortedMovies(filteredMovies);
-    //     setShowSortedResults(true);
-    // };
-    const handleFilteredData = (filteredMovies) => {
-        setFilteredData(filteredMovies);
+    useEffect(() => {
+        dispatch(movieAction.getMovies({ activePage: activePage }));
+    }, [dispatch, activePage]);
+
+
+    useEffect(() => {
+        if (showSortedResults === true) {
+            setSortedMovies(popularMovies.results);
+        }
+        console.log('popularMovies', popularMovies)
+    }, [popularMovies, showSortedResults]);
+
+    const updateMoviesToDisplay = () => {
+        let newMoviesToDisplay;
+        if (movieSearch?.results?.length > 0) {
+            newMoviesToDisplay = filteredData?.filteredData?.length > 0 ? filteredData.filteredData : movieSearch.results;
+            console.log('change? movieSearch?', movieSearch.results)
+            console.log('change? movieSearch? filteredData?', filteredData)
+        } else if (filteredData?.length > 0) {
+            newMoviesToDisplay = filteredData;
+            console.log('change? filteredData?', filteredData)
+        } else {
+            newMoviesToDisplay = showSortedResults ? sortedMovies : popularMovies?.results || [];
+        }
+        setMoviesToDisplay(newMoviesToDisplay);
     };
 
-    const renderSearchResults = () => (
-        <Container>
-            <Row>
-                <Col lg={4}>
-                    <div className='moviecard-list-item'>
-                        <MyFilter
-                            sortByVoteAverageAscending={() => sortByAscending({ factor: 'vote_average' })}
-                            sortByVoteAverageDescending={() => sortByDescending({ factor: 'vote_average' })}
-                            sortByReleaseDateAscending={() => sortByAscending({ factor: 'release_date' })}
-                            sortByReleaseDateDescending={() => sortByDescending({ factor: 'release_date' })}
-                            sortByPopularityAscending={() => sortByAscending({ factor: 'popularity' })}
-                            sortByPopularityDescending={() => sortByDescending({ factor: 'popularity' })}
-                            setSortedMovies={setSortedMovies}
-                            setShowSortedResults={setShowSortedResults}
-                            handleFilteredData={handleFilteredData}
+    useEffect(() => {
+        updateMoviesToDisplay();
+    }, [movieSearch?.results, filteredData, sortedMovies, popularMovies]);
 
 
-                        />
-                    </div>
-                </Col>
-                <Col lg={8}>
-                    <div className='moviecard-search-containter'>
-                        <div className='moviecard-search-wrapper'>
-                            {movieSearch.results.map(item => <div className='moviecard-search-item'><MoviesCard key={item.id} item={item} /> </div>)}
+    useEffect(() => {
+        if (movieSearch?.results?.length > 0) {
+            setCurrentDataSource('movieSearch');
+        }
+    }, [movieSearch]);
+
+
+    const renderContent = () => {
+
+        return (
+            <Container>
+                <Row className="moviecard-list-container">
+                    <Col lg={4}>
+                        <div className="moviecard-search-item">
+                            <MyFilter
+                                sortByVoteAverageAscending={() => sortByAscending({ factor: "vote_average" })}
+                                sortByVoteAverageDescending={() => sortByDescending({ factor: "vote_average" })}
+                                sortByReleaseDateAscending={() => sortByAscending({ factor: "release_date" })}
+                                sortByReleaseDateDescending={() => sortByDescending({ factor: "release_date" })}
+                                sortByPopularityAscending={() => sortByAscending({ factor: "popularity" })}
+                                sortByPopularityDescending={() => sortByDescending({ factor: "popularity" })}
+                                setSortedMovies={setSortedMovies}
+                                setShowSortedResults={setShowSortedResults}
+                                setSearchedData={setSearchedData}
+                                searchedData={searchedData}
+                                sortedMovies={sortedMovies}
+                                currentDataSource={currentDataSource}
+                                setCurrentDataSource={setCurrentDataSource}
+
+                            />
                         </div>
-                    </div>
-                    <MyPagination
-                        activePage={activePage}
-                        totalItemsCount={450}
-                        onChange={handlePageChange}
-                    />
-                </Col>
-            </Row>
-
-        </Container>
+                    </Col>
+                    <Col lg={8}>
+                        <div className="moviecard-search-containter">
+                            <div className="moviecard-search-wrapper">
 
 
-    );
-    const renderMovieCategories = () => (
-        <Container>
-            <Row className='moviecard-list-container'>
-                <Col lg={4}>
-                    <div className='moviecard-search-item'>
-                        <MyFilter
-                            sortByVoteAverageAscending={() => sortByAscending({ factor: 'vote_average' })}
-                            sortByVoteAverageDescending={() => sortByDescending({ factor: 'vote_average' })}
-                            sortByReleaseDateAscending={() => sortByAscending({ factor: 'release_date' })}
-                            sortByReleaseDateDescending={() => sortByDescending({ factor: 'release_date' })}
-                            sortByPopularityAscending={() => sortByAscending({ factor: 'popularity' })}
-                            sortByPopularityDescending={() => sortByDescending({ factor: 'popularity' })}
-                            setSortedMovies={setSortedMovies}
-                            setShowSortedResults={setShowSortedResults}
-                            handleFilteredData={handleFilteredData}
-                        />
-                    </div>
-                </Col>
 
-                <Col lg={8}>
-                    <div className='moviecard-search-containter'>
-
-                        <div className='moviecard-search-wrapper'>
-                            {(showSortedResults ? sortedMovies : filteredData.length > 0 ? filteredData : popularMovies.results).map(
-                                (item) => (
-                                    <MoviesCard key={item.id} item={item} />
-                                )
-                            )}
+                                {moviesToDisplay && moviesToDisplay.map((item) => (
+                                    <div key={item.id} className="moviecard-search-item">
+                                        <MoviesCard item={item} />
+                                    </div>
+                                ))}
+                            </div>
                         </div>
-                    </div>
-                    <MyPagination
-                        activePage={activePage}
-                        totalItemsCount={450}
-                        onChange={handlePageChange}
-                    />
-                </Col>
-            </Row>
-        </Container>
-    );
+                        <MyPagination activePage={activePage} totalItemsCount={450} onChange={handlePageChange} />
+                    </Col>
+                </Row>
+            </Container>
+        );
+    };
+
 
     if (loading) {
         return <ClipLoader
@@ -163,7 +156,7 @@ const Movies = () => {
 
     return (
         <div>
-            {movieSearch && movieSearch.results ? renderSearchResults() : renderMovieCategories()}
+            {renderContent()}
         </div>
     )
 
