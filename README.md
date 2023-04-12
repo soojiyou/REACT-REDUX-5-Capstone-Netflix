@@ -12,18 +12,24 @@ This capstone project involved building a Netflix clone website using React, Red
 * Detailed movie information, including summary, related movies, reviews, and trailers
 
 ## Plan for this project:
-Plan (making Netflix)
-1. 3 pages: main homepage, movie page, movie detail page
-2. banner on homepage
-3. Main page:
-    3-1. 3 movie lists by category ( popular, top rated, upcoming )
-    3-2. when the mouse pointer on each movie, user can see brief movie information ( title, genre, rate, popularity, whether it's rated R. )
-    3-3. movie list can be slided to show next movies
-    3-4. Users can view detailed information about the movie by clicking on the movie card (Movie Detail page).
-    3-5. User can search movie. sort, filter
-4. Movie detail page:
-    4-1. the movie poster, title, rating, popularity, whether it's rated R, a summary of the plot, budget, date, time, reviews, trailers, related movies, and more.
-    4-2. trailer, review, related movies
+* 3 pages: main homepage, movie page, movie detail page
+* Banner on homepage
+* Main page:
+
+    1. 3 movie lists by category ( popular, top rated, upcoming )
+    
+    2. when the mouse pointer on each movie, user can see brief movie information ( title, genre, rate, popularity, whether it's rated R. )
+    
+    3. movie list can be slided to show next movies
+    
+    4. Users can view detailed information about the movie by clicking on the movie card (Movie Detail page).
+    
+    5. User can search movie. sort, filter
+    
+* Movie detail page:
+    1. the movie poster, title, rating, popularity, whether it's rated R, a summary of the plot, budget, date, time, reviews, trailers, related movies, and more.
+    
+    2. trailer, review, related movies
 
 
 ## Technologies and Tools Used:
