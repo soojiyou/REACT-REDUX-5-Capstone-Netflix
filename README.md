@@ -11,7 +11,7 @@ This capstone project involved building a Netflix clone website using React, Red
 * Filtering options for movies by release year range, IBM score range, and genre
 * Detailed movie information, including summary, related movies, reviews, and trailers
 
-## Plan for this project:
+## Design Plan for this project:
 * 3 pages: main homepage, movie page, movie detail page
 * Banner on homepage
 * Main page:
