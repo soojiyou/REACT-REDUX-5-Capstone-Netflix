@@ -5,24 +5,40 @@ This capstone project involved building a Netflix clone website using React, Red
 
 ## Key Features:
 
-Movie recommendations on the main page
-Movie search functionality
-Sorting options for movies by vote average, release date, and popularity
-Filtering options for movies by release year range, IBM score range, and genre
-Detailed movie information, including summary, related movies, reviews, and trailers
+* Movie recommendations on the main page
+* Movie search functionality
+* Sorting options for movies by vote average, release date, and popularity
+* Filtering options for movies by release year range, IBM score range, and genre
+* Detailed movie information, including summary, related movies, reviews, and trailers
+
+## Plan for this project:
+Plan (making Netflix)
+1. 3 pages: main homepage, movie page, movie detail page
+2. banner on homepage
+3. Main page:
+    3-1. 3 movie lists by category ( popular, top rated, upcoming )
+    3-2. when the mouse pointer on each movie, user can see brief movie information ( title, genre, rate, popularity, whether it's rated R. )
+    3-3. movie list can be slided to show next movies
+    3-4. Users can view detailed information about the movie by clicking on the movie card (Movie Detail page).
+    3-5. User can search movie. sort, filter
+4. Movie detail page:
+    4-1. the movie poster, title, rating, popularity, whether it's rated R, a summary of the plot, budget, date, time, reviews, trailers, related movies, and more.
+    4-2. trailer, review, related movies
+
 
 ## Technologies and Tools Used:
 
-React for building user interfaces
-Redux for managing application state
-TMDB API for fetching movie data
-React-bootstrap for responsive design and UI components
-Fortawesome icons for enhancing the app's design
-Netlify for deployment
+* React for building user interfaces
+* Redux for managing application state
+* TMDB API for fetching movie data
+* React-bootstrap for responsive design and UI components
+* Fortawesome icons for enhancing the app's design
+* Netlify for deployment
+
 
 ## Achievements:
 
-Successfully implemented search and filtering options to improve user experience
-Created a visually appealing and functional Netflix clone
-Utilized modern web development techniques and best practices
-Deployed the app using Netlify for easy access and updates
+* Successfully implemented search and filtering options to improve user experience
+* Created a visually appealing and functional Netflix clone
+* Utilized modern web development techniques and best practices
+* Deployed the app using Netlify for easy access and updates
