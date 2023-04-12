@@ -5,7 +5,7 @@ This capstone project involved building a Netflix clone website using React, Red
 
 ## Key Features:
 
-Personalized movie recommendations on the main page
+Movie recommendations on the main page
 Movie search functionality
 Sorting options for movies by vote average, release date, and popularity
 Filtering options for movies by release year range, IBM score range, and genre
