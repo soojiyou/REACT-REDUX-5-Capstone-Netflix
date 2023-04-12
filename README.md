@@ -1,5 +1,8 @@
 # Title: Netflix App Clone (Codingnoona Capstone)
 
+## Demo Website (Netlify)
+ https://master--sparkly-starlight-dc9364.netlify.app/
+
 ## Project Overview:
 This capstone project involved building a Netflix clone website using React, Redux, and movie data APIs like TMDB. The app provides users with recommended movies on the main page, allows them to search for desired movies, and offers sorting and filtering options in a dropdown menu. Users can also access detailed information on individual movies, such as summaries, related movies, reviews, and trailers.
 
