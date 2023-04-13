@@ -6,9 +6,9 @@ function getMovies({ activePage = 1 }) {
         try {
             dispatch({ type: "GET_MOVIES_REQUEST" });
 
-            // let urlPopular = "https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1";
-            // let responsePopular = await fetch(urlPopular);
-            // let dataPopular = await responsePopular.json();
+            /* let urlPopular = "https://api.themoviedb.org/3/movie/popular?api_key=<<api_key>>&language=en-US&page=1";
+             let responsePopular = await fetch(urlPopular);
+             let dataPopular = await responsePopular.json();*/
 
             const movieApiPopular = api.get(`/movie/popular?api_key=${API_KEY}&language=en-US&page=${activePage}`);
 

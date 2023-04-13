@@ -1,31 +1,21 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import InputRange from 'react-input-range';
-import { Nav, NavDropdown, DropdownButton, Dropdown, Badge, Overlay, Popover } from 'react-bootstrap';
+import { Nav, NavDropdown, DropdownButton, Dropdown, Badge } from 'react-bootstrap';
 import { movieAction } from '../redux/actions/MovieAction';
 import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom'
 
 function MyFilter({ sortedMovies, currentDataSource,
     sortByVoteAverageAscending, sortByVoteAverageDescending,
     sortByReleaseDateAscending, sortByReleaseDateDescending,
     sortByPopularityAscending, sortByPopularityDescending,
-    setSortedMovies, setShowSortedResults
+    setSortedMovies, setShowSortedResults, unfilteredSortedMovies,
 }) {
 
     const dispatch = useDispatch();
-    const navigate = useNavigate();
-
     const [yearRange, setYearRange] = useState({ min: 1900, max: new Date().getFullYear() });
-    const { popularMovies, topRatedMovies, upcomingMovies, loading, movieSearch, genreList, filteredData } = useSelector(state => state.movie);
+    const { popularMovies, movieSearch, genreList, filteredData } = useSelector(state => state.movie);
     const [scoreRange, setScoreRange] = useState({ min: 0, max: 10 });
     const [selectedGenres, setSelectedGenres] = useState(new Set());
-
-
-    // const handleInputChange = (filter) => {
-    //     handleFilterChange(filter);
-    //     setSortedMovies([]);
-    //     setShowSortedResults(false);
-    //   };
 
     const handleYearRangeChange = (newYearRange) => {
         setYearRange(newYearRange);
@@ -37,7 +27,9 @@ function MyFilter({ sortedMovies, currentDataSource,
                 data = movieSearch?.results || [];
                 break;
             case 'sortedMovies':
-                data = sortedMovies;
+                // data = sortedMovies;
+                data = unfilteredSortedMovies;
+
                 break;
             default:
                 data = popularMovies.results;
@@ -47,9 +39,13 @@ function MyFilter({ sortedMovies, currentDataSource,
             const releaseYear = new Date(item.release_date).getFullYear();
             return releaseYear >= newYearRange.min && releaseYear <= newYearRange.max;
         });
+        if (newData.length === 0) {
+            setSortedMovies([]);
+        } else {
+            dispatch(movieAction.setFilteredData({ filteredData: newData }));
+            setSortedMovies(newData);
+        }
 
-        dispatch(movieAction.setFilteredData({ filteredData: newData }));
-        setSortedMovies(newData);
     };
     const handleScoreRangeChange = (newScoreRange) => {
         setScoreRange(newScoreRange);
@@ -61,7 +57,9 @@ function MyFilter({ sortedMovies, currentDataSource,
                 data = movieSearch?.results || [];
                 break;
             case 'sortedMovies':
-                data = sortedMovies;
+                // data = sortedMovies;
+                data = unfilteredSortedMovies;
+
                 break;
             default:
                 data = popularMovies.results;
@@ -71,8 +69,12 @@ function MyFilter({ sortedMovies, currentDataSource,
             return item.vote_average >= newScoreRange.min && item.vote_average <= newScoreRange.max;
         });
 
-        dispatch(movieAction.setFilteredData({ filteredData: newData }));
-        setSortedMovies(newData);
+        if (newData.length === 0) {
+            setSortedMovies([]);
+        } else {
+            dispatch(movieAction.setFilteredData({ filteredData: newData }));
+            setSortedMovies(newData);
+        }
     };
 
     const handleGenreBadgeClick = (genreId) => {
@@ -84,7 +86,9 @@ function MyFilter({ sortedMovies, currentDataSource,
                 data = movieSearch?.results || [];
                 break;
             case 'sortedMovies':
-                data = sortedMovies;
+                // data = sortedMovies;
+                data = unfilteredSortedMovies;
+
                 break;
             default:
                 data = popularMovies.results;
@@ -94,19 +98,14 @@ function MyFilter({ sortedMovies, currentDataSource,
             return item.genre_ids.includes(genreId);
         });
 
-        dispatch(movieAction.setFilteredData({ filteredData: newData }));
-        setSortedMovies(newData);
+        if (newData.length === 0) {
+            setSortedMovies([]);
+        } else {
+            dispatch(movieAction.setFilteredData({ filteredData: newData }));
+            setSortedMovies(newData);
+        }
     };
 
-
-
-    // useEffect(() => {
-    //     if (filteredData === true) {
-    //         dispatch(movieAction.getMovies({ activePage: 1 }));
-    //     }
-    //     console.log('filteredData', filteredData)
-
-    // }, [dispatch, filteredData]);
     useEffect(() => {
         if (filteredData === true && movieSearch === {}) {
             dispatch(movieAction.getMovies({ activePage: 1 }));
