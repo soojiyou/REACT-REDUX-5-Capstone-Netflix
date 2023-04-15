@@ -23,11 +23,12 @@ const Banner = ({ movie }) => {
     useEffect(() => {
         const handleResize = () => {
             if (window.innerWidth < 500) {
-                setImageSize('w355_and_h200_multi_faces');
+                setImageSize('original');
             } else if (window.innerWidth < 1200) {
-                setImageSize('w355_and_h200_multi_faces');
+                setImageSize('original');
             } else {
-                setImageSize('w1920_and_h800_multi_faces');
+                // setImageSize('w1920_and_h800_multi_faces');
+                setImageSize('original');
             }
         };
 

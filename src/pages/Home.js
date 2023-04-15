@@ -33,7 +33,7 @@ const Home = () => {
                 <h1>Upcoming Movies</h1>
                 <MovieSlide movies={upcomingMovies} />
             </div>
-        </div>
+        </div >
     )
 
 }

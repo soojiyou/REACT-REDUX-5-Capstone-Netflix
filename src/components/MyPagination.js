@@ -3,6 +3,7 @@ import Pagination from "react-js-pagination";
 import "../PaginationStyle.css"
 
 
+
 const MyPagination = ({ activePage, totalItemsCount, onChange }) => {
     return (
         <div>
