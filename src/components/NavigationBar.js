@@ -97,7 +97,7 @@ function NavigationBar() {
     return (
         <Navbar className={`navbarstyle ${bgClassName}`}>
             <Container fluid>
-                <Navbar.Brand href="#" className='navlogo'>
+                <Navbar.Brand href="/" className='navlogo'>
                     <LogoMotionSvg
                         variants={logoVariants}
                         initial="start"
