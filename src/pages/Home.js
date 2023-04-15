@@ -26,11 +26,11 @@ const Home = () => {
 
             <Banner movie={popularMovies.results && popularMovies.results.length > 0 ? popularMovies.results[0] : {}} />
             <div className='home-content'>
-                <h1>Popular Movies</h1>
+                <h1 class='home-h1'>Popular Movies</h1>
                 <MovieSlide movies={popularMovies} />
-                <h1>Top Rated Movies</h1>
+                <h1 class='home-h1'>Top Rated Movies</h1>
                 <MovieSlide movies={topRatedMovies} />
-                <h1>Upcoming Movies</h1>
+                <h1 class='home-h1'>Upcoming Movies</h1>
                 <MovieSlide movies={upcomingMovies} />
             </div>
         </div >
