@@ -109,6 +109,11 @@ html {
     font-weight: 400;
     padding-bottom: 1rem;
     margin: 0;
+    /* color: white; */
+    color: #e32828;
+    -webkit-text-stroke-width: 0.3px;
+    -webkit-text-stroke-color: white;
+    text-shadow: 5px 5px 5px #e3564f;
 }
 
 @media (max-width:500px) {
