@@ -62,6 +62,21 @@ html {
     color: #d24036;
 }
 
+.nav-item .nav-link {
+    color: white;
+}
+
+.nav-item .nav-link:hover {
+    color: #d24036;
+}
+
+.nav-item .nav-link.active {
+    border: 1px solid white !important;
+    background: none !important;
+    color: #d24036 !important;
+}
+
+
 .banner-item {
     display: flex;
     align-items: center;
@@ -247,6 +262,17 @@ html {
 
 }
 
+.movie-detail-row button {
+    width: 100% !important;
+    background: none !important;
+    border: 1px solid #d24036;
+}
+
+.movie-detail-row button:hover {
+    background-color: #d24036 !important;
+    border: 1px solid #d24036;
+}
+
 @media (max-width: 991px) {
     .movie-detail-img {
         justify-content: center;
@@ -301,10 +327,6 @@ html {
         width: 60px;
         padding: 0 3rem !important;
 
-    }
-
-    .movie-detail-row button {
-        width: 100% !important;
     }
 
 }
@@ -514,7 +536,15 @@ html {
 .dropdown-style-container a:hover {
     border-color: #a71d13;
     background-color: black;
-    color: red;
+    color: #a71d13;
+}
+
+.dropdown-style button.show,
+.dropdown-style-container button.show,
+.dropdown-style-container a.show {
+    border-color: #a71d13;
+    background-color: #a71d13;
+    color: white;
 }
 
 .dropdown-style-container {
