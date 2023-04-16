@@ -25,6 +25,7 @@ html {
     position: fixed !important;
     font-family: 'Bebas Neue', cursive;
     font-size: 20px;
+    height: 80px;
 
 }
 
@@ -115,9 +116,7 @@ html {
 
 }
 
-.home-content {
-    margin: 5rem;
-}
+
 
 .home-content h1 {
     font-family: 'Kanit', sans-serif;
@@ -147,6 +146,10 @@ html {
     .home-content h1 {
         font-size: 1.2rem;
     }
+
+    .home-content {
+        margin: 0.5rem;
+    }
 }
 
 
@@ -162,6 +165,10 @@ html {
     .home-content h1 {
         font-size: 1.7rem;
     }
+
+    .home-content {
+        margin: 1.5rem;
+    }
 }
 
 @media (min-width: 992px) {
@@ -175,6 +182,10 @@ html {
 
     .home-content h1 {
         font-size: 2rem;
+    }
+
+    .home-content {
+        margin: 3.5rem;
     }
 
 }
@@ -192,6 +203,11 @@ html {
     .home-content h1 {
         font-size: 2.3rem;
     }
+
+    .home-content {
+        margin: 5rem;
+    }
+
 }
 
 .movie-slide {
