@@ -15,6 +15,7 @@ html {
     width: 130px;
 }
 
+
 .navbarstyle {
     display: flex !important;
     top: 0;
@@ -41,7 +42,7 @@ html {
     padding-right: 25px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 500px) {
 
     .nav-item {
         font-size: 14px;
@@ -51,6 +52,12 @@ html {
     .navbar-form {
         width: 100%;
         max-width: 150px;
+        padding-right: 15px;
+    }
+
+    .navlogo {
+        padding-left: 15px;
+        width: 115px;
     }
 
 
