@@ -25,7 +25,7 @@ html {
     position: fixed !important;
     font-family: 'Bebas Neue', cursive;
     font-size: 20px;
-    height: 80px;
+    height: 70px;
 
 }
 
@@ -35,6 +35,10 @@ html {
 
 .navbarstyle.opaque {
     background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.navbar-form {
+    padding-right: 25px;
 }
 
 @media (max-width: 600px) {
