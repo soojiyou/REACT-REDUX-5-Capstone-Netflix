@@ -1,6 +1,6 @@
 import React from "react";
 import Pagination from "react-js-pagination";
-import "../PaginationStyle.css"
+import "../style/PaginationStyle.css"
 
 
 

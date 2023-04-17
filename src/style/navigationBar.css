@@ -1,0 +1,77 @@
+.navlogo {
+    padding-left: 25px;
+    width: 130px;
+}
+
+
+.navbarstyle {
+    display: flex !important;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background-color: transparent !important;
+    position: fixed !important;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 20px;
+    height: 70px;
+
+}
+
+.navbarstyle.transparent {
+    background-color: rgba(0, 0, 0, 1) !important;
+}
+
+.navbarstyle.opaque {
+    background-color: rgba(0, 0, 0, 0) !important;
+}
+
+.navbar-form {
+    padding-right: 25px;
+}
+
+@media (max-width: 500px) {
+
+    .nav-item {
+        font-size: 14px;
+        margin-right: 8px;
+    }
+
+    .navbar-form {
+        width: 100%;
+        max-width: 150px;
+        padding-right: 15px;
+    }
+
+    .navlogo {
+        padding-left: 15px;
+        width: 115px;
+    }
+
+
+}
+
+
+.nav-item {
+    color: white;
+    text-decoration: none;
+    margin-right: 20px;
+}
+
+.nav-item:hover {
+    color: #d24036;
+}
+
+.nav-item .nav-link {
+    color: white;
+}
+
+.nav-item .nav-link:hover {
+    color: #d24036;
+}
+
+.nav-item .nav-link.active {
+    border: 1px solid white !important;
+    background: none !important;
+    color: #d24036 !important;
+}

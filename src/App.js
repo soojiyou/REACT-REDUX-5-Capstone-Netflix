@@ -1,4 +1,4 @@
-import './App.css';
+import './style/App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import 'react-input-range/lib/css/index.css';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';

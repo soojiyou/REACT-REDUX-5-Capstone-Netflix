@@ -8,25 +8,29 @@ const responsive = {
     superLargeDesktop: {
         // the naming can be any, depends on you.
         breakpoint: { max: 4000, min: 1200 },
-        items: 5
+        items: 5,
+        slidesToSlide: 3,
     },
     desktop: {
         breakpoint: { max: 1200, min: 992 },
-        items: 4
+        items: 4,
+        slidesToSlide: 3,
     },
     tablet: {
         breakpoint: { max: 992, min: 500 },
-        items: 3
+        items: 3,
+        slidesToSlide: 2,
     },
     mobile: {
         breakpoint: { max: 500, min: 0 },
-        items: 1
+        items: 1,
+        slidesToSlide: 1,
     }
 };
 const MovieSlide = ({ movies }) => {
     return (
         <div className='movie-slide'>
-            <Carousel style={{ height: '200px' }} responsive={responsive}>
+            <Carousel className="custom-carousel" responsive={responsive}>
                 {movies?.results && movies.results.map(item => <MovieCard key={item.id} item={item} />)}
             </Carousel>
         </div>

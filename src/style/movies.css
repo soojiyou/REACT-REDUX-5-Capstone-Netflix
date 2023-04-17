@@ -1,0 +1,98 @@
+/*Movies.js*/
+.movielistcard {
+
+    margin: 10px;
+    background-size: cover;
+    background-position: center center;
+    box-shadow: 8px 8px 20px 10px #530909;
+    transition: 0.3s;
+    border-radius: 5px;
+}
+
+@media (max-width: 992px) {
+    .movielistcard {
+        width: 200px;
+        height: 350px;
+
+    }
+
+}
+
+@media (min-width: 992px) {
+    .movielistcard {
+        width: 250px;
+        height: 425px;
+
+    }
+}
+
+
+@media (min-width: 1200px) {
+    .movielistcard {
+        width: 300px;
+        height: 500px;
+
+    }
+}
+
+
+
+
+.movielistcard:hover {
+    box-shadow: 4px 8px 20px 10px #a71d13;
+    transform: scale(1.02);
+    transition: all .4s;
+}
+
+.moviecard-list-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 4rem;
+
+}
+
+
+.moviecard-list-item {
+    padding: 30px;
+
+}
+
+.overlay-moviecard {
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 5%, transparent);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    padding: 1rem;
+}
+
+.overlay-moviecard h1 {
+    font-size: 1.5rem;
+}
+
+@media (max-width:500px) {
+    .overlay-moviecard h1 {
+        font-size: 1.2rem;
+    }
+
+    .overlay-moviecard div span {
+        font-size: 0.7rem;
+    }
+}
+
+
+.moviecard-search-containter {
+    margin-top: 2rem;
+}
+
+.moviecard-search-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.moviecard-search-item {
+    padding-top: 40px;
+    display: flex;
+    justify-content: center;
+}
