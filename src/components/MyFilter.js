@@ -16,6 +16,11 @@ function MyFilter({ sortedMovies, currentDataSource,
     const { popularMovies, movieSearch, genreList, filteredData } = useSelector(state => state.movie);
     const [scoreRange, setScoreRange] = useState({ min: 0, max: 10 });
     const [selectedGenres, setSelectedGenres] = useState(new Set());
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 500);
+
+    const handleWindowResize = () => {
+        setIsSmallScreen(window.innerWidth < 500);
+    };
 
     const handleYearRangeChange = (newYearRange) => {
         setYearRange(newYearRange);
@@ -27,7 +32,6 @@ function MyFilter({ sortedMovies, currentDataSource,
                 data = movieSearch?.results || [];
                 break;
             case 'sortedMovies':
-                // data = sortedMovies;
                 data = unfilteredSortedMovies;
 
                 break;
@@ -106,6 +110,8 @@ function MyFilter({ sortedMovies, currentDataSource,
         }
     };
 
+    // const isSmallScreen = window.innerWidth < 500;
+
     useEffect(() => {
         if (filteredData === true && movieSearch === {}) {
             dispatch(movieAction.getMovies({ activePage: 1 }));
@@ -115,7 +121,15 @@ function MyFilter({ sortedMovies, currentDataSource,
         console.log('filteredData', filteredData)
     }, [dispatch, filteredData, movieSearch]);
 
-    const isSmallScreen = window.innerWidth < 500;
+    useEffect(() => {
+        // Add the event listener
+        window.addEventListener('resize', handleWindowResize);
+
+        // Remove the event listener when the component is unmounted
+        return () => {
+            window.removeEventListener('resize', handleWindowResize);
+        };
+    }, []);
 
     return (
         <Nav className='filter-container'>
