@@ -235,6 +235,7 @@ html {
 .moviecard {
     width: 355px;
     height: 200px;
+    background-position: center center;
 
 }
 
@@ -286,7 +287,14 @@ html {
     width: 400px;
     height: 600px;
     background-size: cover;
+    background-position: center center;
+}
 
+@media (max-width:500px) {
+    .moviecard-detail {
+        width: 300px;
+        height: 450px;
+    }
 }
 
 .movie-detail-row button {
@@ -400,6 +408,7 @@ html {
 
 .movie-detail-title h1 {
     width: 100%;
+    display: contents;
 }
 
 
@@ -426,11 +435,8 @@ html {
 .moviecard-recommand-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    /* grid-template-rows: 100px 100px; */
     grid-gap: 10px;
     justify-items: center;
-
-
 }
 
 .moviecard-recommand {
@@ -442,13 +448,26 @@ html {
     opacity: 1;
 }
 
-#tabsstyle {
-    color: red;
-}
 
 .reviewdiv {
     border-bottom: 1px solid whitesmoke;
     margin: 20px 5px;
+}
+
+@media (max-width:500px) {
+    .tabsstyle .nav-item {
+        margin: 0;
+        padding: 0 !important;
+    }
+
+    .tabsstyle {
+        justify-content: space-around;
+        padding: 0 !important;
+    }
+
+    .tab-content {
+        padding: 0 5px;
+    }
 }
 
 
@@ -457,6 +476,7 @@ html {
 
     margin: 10px;
     background-size: cover;
+    background-position: center center;
     box-shadow: 8px 8px 20px 10px #530909;
     transition: 0.3s;
     border-radius: 5px;
@@ -512,19 +532,27 @@ html {
 }
 
 .overlay-moviecard {
-    /* opacity: 0; */
-    /* background: rgba(53, 51, 51, 0.9); */
-    background: linear-gradient(to right, black, transparent);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 5%, transparent);
     width: 100%;
     height: 100%;
     z-index: 1;
     padding: 1rem;
-
 }
 
 .overlay-moviecard h1 {
     font-size: 1.5rem;
 }
+
+@media (max-width:500px) {
+    .overlay-moviecard h1 {
+        font-size: 1.2rem;
+    }
+
+    .overlay-moviecard div span {
+        font-size: 0.7rem;
+    }
+}
+
 
 .moviecard-search-containter {
     margin-top: 2rem;
@@ -580,19 +608,6 @@ html {
 
 }
 
-/* .dropdown-style-nav {
-    display: flex;
-    flex-direction: column;
-    width: 200px;
-    font-size: 15px;
-    justify-content: center;
-} */
-
-/* .dropdown-style div {
-    padding: 10px 20px;
-    font-size: 16px;
-    color: white;
-} */
 .divider {
     color: white;
 }
@@ -615,30 +630,36 @@ html {
 
 }
 
-/* .sortoptiondiv div {
-    border: 1px solid white;
-} */
 
 
 .sortoptiondiv div a {
     border-bottom: 1px solid white;
 
-    width: 150px;
+    width: 155px;
     padding: 5px;
     color: white;
     font-size: 12px;
 
 }
 
-/* .dropdown-style-nav-item {
-    font-size: 13px;
-    width: 150px;
-} */
+@media (max-width:500px) {
+    .sortdiv {
+        padding: 1rem 1.2rem;
+        margin: 0 5px;
+        font-size: 13px;
+    }
+
+    .sortoptiondiv div a {
+        font-size: 12px;
+        text-align: center;
+    }
+
+}
 
 .nav-dropdown-style {
-    /* border: 1px solid white; */
     color: white;
 }
+
 
 .nav-dropdown-style a {
     border-bottom: 1px solid white;

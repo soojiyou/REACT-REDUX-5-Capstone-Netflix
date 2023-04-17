@@ -101,15 +101,15 @@ const MovieDetail = ({ item }) => {
                 </Row>
                 <Row className='movie-extra-container-row'>
                     <Tabs className='tabsstyle' defaultActiveKey="Review">
-                        <Tab eventKey="Review" title="Review">
+                        <Tab className='tabsstyle-tab' eventKey="Review" title="Review">
                             {movieReview && movieReview.results && movieReview.results.map(item => <div className='reviewdiv'><h3 style={{ fontSize: '18px' }}>{item.author}</h3><p>{item.content}</p></div>)}
                         </Tab>
-                        <Tab eventKey="RecommandMovie" title="Recommand Movie">
+                        <Tab className='tabsstyle-tab' eventKey="RecommandMovie" title="Recommand Movie">
                             <div className='moviecard-recommand-container'>
                                 {movieRecommand && movieRecommand.results && movieRecommand.results.map(item => <RecommandCard key={item.id} item={item} />)}
                             </div>
                         </Tab>
-                        <Tab eventKey="contact" title="Contact">
+                        <Tab className='tabsstyle-tab' eventKey="contact" title="Contact">
                             <p>Content for Contact tab</p>
                         </Tab>
                     </Tabs>

@@ -115,12 +115,13 @@ function MyFilter({ sortedMovies, currentDataSource,
         console.log('filteredData', filteredData)
     }, [dispatch, filteredData, movieSearch]);
 
+    const isSmallScreen = window.innerWidth < 500;
 
     return (
         <Nav className='filter-container'>
 
             <div className="dropdown-style-container">
-                <DropdownButton className="dropdown-style" id="dropdown-basic-button" title="Sort" variant="outline-danger" drop="end">
+                <DropdownButton className="dropdown-style" id="dropdown-basic-button" title="Sort" variant="outline-danger" drop={isSmallScreen ? "down" : "end"}>
                     <div className='sortdiv'>
                         <div >
                             Sorted By
