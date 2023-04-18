@@ -1,14 +1,14 @@
 .movie-slide {
     padding-bottom: 2rem;
     margin-top: 1rem;
+    height: 360px;
+    position: relative;
 }
 
 .movie-slide div ul li {
     display: flex;
     justify-content: center;
-
 }
-
 
 .moviecard {
     width: 355px;
@@ -16,6 +16,7 @@
     background-position: center center;
     transition: transform 0.3s ease-in-out;
     transform-origin: center bottom;
+    z-index: 1;
 }
 
 .overlay {
@@ -35,29 +36,39 @@
     padding: 0 3px;
 }
 
-.react-multi-casual-item:hover {
-    /* transform: scale(1.1) !important; */
-    height: 220px;
-    width: 390px;
-    z-index: 3 !important;
-    transform-origin: center bottom;
+.custom-carousel {
+    overflow: visible !important;
+    position: relative !important;
+}
 
+.custom-carousel .react-multiple-carousel__arrow {
+    z-index: 10;
+    position: absolute !important;
+}
+
+.custom-carousel:hover .react-multiple-carousel__arrow {
+    top: 78px
+}
+
+.custom-carousel .react-multiple-carousel__arrow--left {
+    left: 0;
+}
+
+.custom-carousel .react-multiple-carousel__arrow--right {
+    right: 0;
 }
 
 .moviecard:hover {
-    transform: scale(1.1) !important;
-    height: 220px;
-    width: 390px;
+    transform: translateY(-80px) scale(1.1) !important;
+    height: 360px;
     z-index: 5 !important;
     background-size: cover;
+    background-position: center center;
+    transform-origin: center bottom;
+    margin-right: 13px;
 }
-
 
 .moviecard:hover .overlay {
     opacity: 1;
 
-}
-
-.custom-carousel {
-    overflow: visible !important;
 }

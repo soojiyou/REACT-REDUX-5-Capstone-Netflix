@@ -28,6 +28,7 @@ const responsive = {
     }
 };
 const MovieSlide = ({ movies }) => {
+
     return (
         <div className='movie-slide'>
             <Carousel className="custom-carousel" responsive={responsive}>

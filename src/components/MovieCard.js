@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Badge } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -11,10 +11,26 @@ const MovieCard = ({ item }) => {
     const navigate = useNavigate();
     const showMovieDetail = (id) => { navigate(`/movies/${id}`); };
     const { genreList } = useSelector(state => state.movie);
+    const [isHovered, setIsHovered] = useState(false);
+    const handleMouseEnter = () => {
+        setIsHovered(true);
+    };
+    const handleMouseLeave = () => {
+        setIsHovered(false);
+    };
+    const backgroundImage = isHovered
+        ? `url(https://www.themoviedb.org/t/p/original${item.poster_path})`
+        : `url(https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path})`;
 
     return (
-        <div className='moviecard' onClick={() => showMovieDetail(item.id)} style={{ backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path}` + ")" }}>
-
+        // <div className='moviecard' onClick={() => showMovieDetail(item.id)} style={{ backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path}` + ")" }}>
+        <div
+            className='moviecard'
+            onClick={() => showMovieDetail(item.id)}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            style={{ backgroundImage, cursor: 'pointer' }}
+        >
             <div className='overlay'>
                 <h1>{item.title}</h1>
                 <div>
