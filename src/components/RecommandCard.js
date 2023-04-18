@@ -12,8 +12,8 @@ const RecommandCard = ({ item }) => {
     return (
         <div className='moviecard-recommand' onClick={() => showMovieDetail(item.id)} style={{ backgroundImage: "url(" + `https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path}` + ")" }}>
 
-            <div className='overlay'>
-                <h1>{item.title}</h1>
+            <div className='recommand-overlay'>
+                <h1 className='recommand-h1'>{item.title}</h1>
                 <div>
                     {item.genre_ids.map(id =>
                         <Badge key={id} bg="danger">{genreList.find(item => item.id === id).name}</Badge>

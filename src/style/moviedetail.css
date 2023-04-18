@@ -175,6 +175,7 @@
     grid-template-columns: 1fr 1fr;
     grid-gap: 10px;
     justify-items: center;
+    margin-top: 10px;
 }
 
 .moviecard-recommand {
@@ -182,14 +183,53 @@
     height: 200px;
 }
 
-.moviecard-recommand:hover .overlay {
+.recommand-overlay {
+    opacity: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 2%, rgba(0, 0, 0, 0));
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transition: all 1s;
+}
+
+.recommand-overlay div {
+    padding: 5px 3px;
+}
+
+.recommand-overlayh1 {
+    padding: 0 3px;
+}
+
+
+.moviecard-recommand:hover .recommand-overlay {
     opacity: 1;
+
 }
 
 
 .reviewdiv {
     border-bottom: 1px solid whitesmoke;
     margin: 20px 5px;
+}
+
+@media (min-width: 1200px) {
+    .moviecard-recommand-container {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+}
+
+@media (max-width:767px) {
+    .moviecard-recommand-container {
+        grid-template-columns: 1fr;
+    }
+
+    .moviecard-recommand {
+        width: 400px;
+        height: 225px;
+        background-size: cover;
+    }
+
 }
 
 @media (max-width:500px) {
@@ -206,4 +246,23 @@
     .tab-content {
         padding: 0 5px;
     }
+
+    .moviecard-recommand-container {
+        grid-template-columns: 1fr;
+    }
+
+    .moviecard-recommand {
+        width: 250px;
+        height: 145px;
+        background-size: cover;
+    }
+
+    .recommand-overlay .recommand-h1 {
+        font-size: 20px !important;
+    }
+
+    .moviecard-recommand:hover .recommand-overlay .recommand-h1 {
+        font-size: 20px !important;
+    }
+
 }
