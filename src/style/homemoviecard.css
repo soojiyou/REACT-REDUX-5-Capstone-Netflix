@@ -99,15 +99,11 @@
         overflow: hidden !important;
     }
 
-    /* .custom-carousel:hover .moviecard {
-        overflow: visible;
+
+    .react-multiple-carousel__arrow {
+        display: none;
     }
-    
-    .custom-carousel:hover {
-        overflow: visible;
-        position: relative;
-        z-index: 1;
-    } */
+
 }
 
 .moviecard:hover .overlay {
