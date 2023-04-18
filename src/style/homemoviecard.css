@@ -104,6 +104,20 @@
         display: none;
     }
 
+    .movie-slide {
+        overflow: hidden;
+
+    }
+
+    .custom-carousel:hover .moviecard {
+        overflow-x: hidden;
+    }
+
+    .custom-carousel:hover {
+        overflow-x: hidden;
+        position: relative;
+        z-index: 1;
+    }
 }
 
 .moviecard:hover .overlay {
