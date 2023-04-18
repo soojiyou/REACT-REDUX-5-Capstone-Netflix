@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Badge } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
@@ -12,14 +12,31 @@ const MovieCard = ({ item }) => {
     const showMovieDetail = (id) => { navigate(`/movies/${id}`); };
     const { genreList } = useSelector(state => state.movie);
     const [isHovered, setIsHovered] = useState(false);
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 500);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsDesktop(window.innerWidth >= 500);
+        };
+
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     const handleMouseEnter = () => {
-        setIsHovered(true);
+        if (isDesktop) {
+            setIsHovered(true);
+        }
     };
     const handleMouseLeave = () => {
-        setIsHovered(false);
+        if (isDesktop) {
+            setIsHovered(false);
+        }
     };
-    const backgroundImage = window.innerWidth >= 500 && isHovered
+
+    const backgroundImage = isDesktop && isHovered
         ? `url(https://www.themoviedb.org/t/p/original${item.poster_path})`
         : `url(https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path})`;
 

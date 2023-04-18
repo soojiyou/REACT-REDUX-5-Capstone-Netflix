@@ -1,3 +1,31 @@
+.custom-carousel:hover .react-multiple-carousel__arrow {
+    top: 78px
+}
+
+.custom-carousel .react-multiple-carousel__arrow--left {
+    left: 0;
+}
+
+.custom-carousel .react-multiple-carousel__arrow--right {
+    right: 0;
+}
+
+.custom-carousel {
+    overflow-x: hidden;
+    position: relative;
+}
+
+.custom-carousel .react-multiple-carousel__arrow {
+    z-index: 10;
+    position: absolute !important;
+    background: rgba(43, 42, 42, 0.5);
+}
+
+.custom-carousel .react-multiple-carousel__arrow:hover {
+    background: rgb(209, 27, 27, 0.8);
+    transition: all 0.5s;
+}
+
 .movie-slide {
     padding-bottom: 2rem;
     margin-top: 1rem;
@@ -37,34 +65,12 @@
     padding: 0 3px;
 }
 
-.custom-carousel {
-    overflow-x: hidden;
-    position: relative;
+
+.moviecard:hover .overlay {
+    opacity: 1;
+
 }
 
-.custom-carousel .react-multiple-carousel__arrow {
-    z-index: 10;
-    position: absolute !important;
-    background: rgba(43, 42, 42, 0.5);
-}
-
-.custom-carousel .react-multiple-carousel__arrow:hover {
-    background: rgb(209, 27, 27, 0.8);
-    transition: all 0.5s;
-}
-
-
-.custom-carousel:hover .react-multiple-carousel__arrow {
-    top: 78px
-}
-
-.custom-carousel .react-multiple-carousel__arrow--left {
-    left: 0;
-}
-
-.custom-carousel .react-multiple-carousel__arrow--right {
-    right: 0;
-}
 
 @media (min-width:500px) {
     .moviecard:hover {
@@ -82,13 +88,23 @@
         overflow: visible !important;
     }
 
+    .custom-carousel:hover .moviecard {
+        overflow: visible;
+    }
+
+    .custom-carousel:hover {
+        overflow: visible;
+        position: relative;
+        z-index: 1;
+    }
+
 }
+
 
 @media (max-width:500px) {
     .moviecard:hover {
-        transform: translateY(-50px) scale(1.1) !important;
-        height: 300px;
-        max-width: 250px;
+        transform: scale(1.1) !important;
+        height: 200px;
         z-index: 10 !important;
         background-size: cover;
         background-position: center center;
@@ -104,8 +120,6 @@
         display: none;
     }
 
-
-
     .custom-carousel:hover .moviecard {
         overflow-x: hidden;
     }
@@ -115,19 +129,4 @@
         position: relative;
         z-index: 1;
     }
-}
-
-.moviecard:hover .overlay {
-    opacity: 1;
-
-}
-
-.custom-carousel:hover .moviecard {
-    overflow: visible;
-}
-
-.custom-carousel:hover {
-    overflow: visible;
-    position: relative;
-    z-index: 1;
 }
