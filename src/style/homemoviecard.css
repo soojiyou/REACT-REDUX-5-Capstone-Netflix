@@ -98,6 +98,11 @@
         z-index: 1;
     }
 
+    .cardinfo-hide,
+    .carddirec-hide {
+        display: none;
+    }
+
 }
 
 
@@ -131,7 +136,7 @@
     }
 
     .overlay {
-        opacity: 0;
+        opacity: 1;
         background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 2%, rgba(0, 0, 0, 0));
         width: 100%;
         height: 100%;
@@ -139,4 +144,36 @@
         transition: all 1s;
     }
 
+    .overlay h1 {
+        text-align: end;
+        opacity: 1 !important;
+    }
+
+    .cardinfo-hide {
+        opacity: 0.6;
+        text-align: center;
+        bottom: -10%;
+        position: relative;
+        font-size: 14px;
+    }
+
+    .overlay div {
+        padding: 5px 3px;
+        opacity: 0;
+    }
+
+    .moviecard:hover .overlay,
+    .moviecard:hover .overlay div {
+        opacity: 1;
+
+    }
+
+    .moviecard:hover .overlay h1 {
+        opacity: 1;
+        text-align: start;
+    }
+
+    .moviecard:hover .cardinfo-hide {
+        opacity: 0;
+    }
 }

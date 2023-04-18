@@ -61,6 +61,15 @@ const MovieCard = ({ item }) => {
                     <span> <FontAwesomeIcon icon={faUsers} /> {item.vote_count} </span>
                     <span className='adultfont'> {item.adult ? "Adult" : "Under 18"} </span>
                 </div>
+                <p className='cardinfo-hide'>Hover for more informations<br />
+                    or Click for <strong><em><span
+                        style={{
+                            color: 'gold',
+                            textDecoration: 'underline solid gold',
+
+                        }}>
+                        {item.title}</span></em></strong>'s detail!<br />
+                    {"<< "}&nbsp;&nbsp;Slide to Left or Right!&nbsp;&nbsp;{" >>"}</p>
             </div></div>
     )
 }
