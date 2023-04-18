@@ -88,6 +88,18 @@ html {
     .home-content {
         margin: 0.5rem;
     }
+
+    .banner-item {
+        justify-content: center;
+    }
+
+    .banner-info {
+        width: 80%;
+        margin-left: 0;
+        position: absolute;
+        bottom: 10%;
+        text-align: center;
+    }
 }
 
 
