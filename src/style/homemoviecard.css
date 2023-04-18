@@ -104,10 +104,7 @@
         display: none;
     }
 
-    .movie-slide {
-        overflow: hidden;
 
-    }
 
     .custom-carousel:hover .moviecard {
         overflow-x: hidden;
