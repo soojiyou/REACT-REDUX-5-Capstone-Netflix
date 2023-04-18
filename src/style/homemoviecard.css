@@ -70,6 +70,7 @@
     .moviecard:hover {
         transform: translateY(-78px) scale(1.1) !important;
         height: 360px;
+        max-width: 270px;
         max-height: max-content;
         z-index: 10 !important;
         background-size: cover;
@@ -85,10 +86,9 @@
 
 @media (max-width:500px) {
     .moviecard:hover {
-        transform: translateY(-78px) scale(1.1) !important;
+        transform: translateY(-50px) scale(1.1) !important;
         height: 300px;
-        width: 250px;
-        max-height: max-content;
+        max-width: 250px;
         z-index: 10 !important;
         background-size: cover;
         background-position: center center;
