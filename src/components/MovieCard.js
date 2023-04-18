@@ -12,23 +12,16 @@ const MovieCard = ({ item }) => {
     const showMovieDetail = (id) => { navigate(`/movies/${id}`); };
     const { genreList } = useSelector(state => state.movie);
     const [isHovered, setIsHovered] = useState(false);
-    const [backgroundImage, setBackgroundImage] = useState(`url(https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path})`);
-
 
     const handleMouseEnter = () => {
         setIsHovered(true);
-        if (window.innerWidth >= 500) {
-            setBackgroundImage(`url(https://www.themoviedb.org/t/p/original${item.poster_path})`);
-        }
     };
     const handleMouseLeave = () => {
         setIsHovered(false);
-        setBackgroundImage(`url(https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path})`);
     };
-
-    // const backgroundImage = window.innerWidth >= 500 && isHovered
-    //     ? `url(https://www.themoviedb.org/t/p/original${item.poster_path})`
-    //     : `url(https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path})`;
+    const backgroundImage = window.innerWidth >= 500 && isHovered
+        ? `url(https://www.themoviedb.org/t/p/original${item.poster_path})`
+        : `url(https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path})`;
 
     return (
         <div
