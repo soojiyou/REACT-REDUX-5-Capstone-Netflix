@@ -7,11 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm, faUsers } from '@fortawesome/free-solid-svg-icons'
 import RecommandCard from '../components/RecommandCard';
 import { Tab, Tabs } from 'react-bootstrap';
+import ClipLoader from "react-spinners/ClipLoader";
+
 
 const MovieDetail = ({ item }) => {
     const dispatch = useDispatch();
     let { id } = useParams();
-    const { movieDetail, movieReview, movieRecommand, movieVideo } = useSelector(state => state.movie);
+    const { movieDetail, movieReview, movieRecommand, movieVideo, loading } = useSelector(state => state.movie);
 
     const [showModal, setShowModal] = useState(false);
     const [movieVideoYoutube, setMovieVideo] = useState(null);
@@ -32,7 +34,13 @@ const MovieDetail = ({ item }) => {
         dispatch(movieAction.getMovieDetail({ id }));
     }, []);
 
-
+    if (loading) {
+        return <div className="loading"><ClipLoader
+            color="#ffffff"
+            loading={loading}
+            size={150}
+        /></div>
+    }
     return (
         <div>
             <div className='banner-item-detail' style={{ backgroundImage: "url('https://help.nflxext.com/0af6ce3e-b27a-4722-a5f0-e32af4df3045_what_is_netflix_5_en.png')" }}></div>

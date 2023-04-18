@@ -138,11 +138,11 @@ const Movies = () => {
 
 
     if (loading) {
-        return <ClipLoader
+        return <div className="loading"><ClipLoader
             color="#ffffff"
             loading={loading}
             size={150}
-        />
+        /></div>
     }
 
     return (

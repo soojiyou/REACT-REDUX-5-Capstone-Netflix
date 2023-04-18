@@ -9,27 +9,8 @@ import { Provider } from 'react-redux';
 import store from "./redux/store";
 
 
-
-
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-// root.render(
-//   <Provider store={store}>
-//     <BrowserRouter>
-//       <App />
-//     </BrowserRouter>
-//   </Provider>
-
-// );
 const rootElement = document.getElementById('root');
 
-// ReactDOM.render(
-//   <Provider store={store}>
-//     <BrowserRouter>
-//       <App />
-//     </BrowserRouter>
-//   </Provider>,
-//   rootElement
-// );
 
 ReactDOM.render(
   <Provider store={store}>

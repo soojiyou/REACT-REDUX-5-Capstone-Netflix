@@ -15,11 +15,11 @@ const Home = () => {
 
 
     if (loading) {
-        return <ClipLoader
+        return <div className="loading"><ClipLoader
             color="#ffffff"
             loading={loading}
             size={150}
-        />
+        /></div>
     }
     return (
         <div className='home-div'>
