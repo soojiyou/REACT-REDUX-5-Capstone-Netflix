@@ -96,8 +96,18 @@
         margin-right: 13px;
         box-shadow: 0px 4px 10px 10px #a71d13;
         border-radius: 5px;
-        /* overflow: visible !important; */
+        overflow: hidden !important;
     }
+
+    /* .custom-carousel:hover .moviecard {
+        overflow: visible;
+    }
+    
+    .custom-carousel:hover {
+        overflow: visible;
+        position: relative;
+        z-index: 1;
+    } */
 }
 
 .moviecard:hover .overlay {
