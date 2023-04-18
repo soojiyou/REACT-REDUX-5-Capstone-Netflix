@@ -22,7 +22,7 @@ const Home = () => {
         />
     }
     return (
-        <div>
+        <div className='home-div'>
 
             <Banner movie={popularMovies.results && popularMovies.results.length > 0 ? popularMovies.results[0] : {}} />
             <div className='home-content'>
