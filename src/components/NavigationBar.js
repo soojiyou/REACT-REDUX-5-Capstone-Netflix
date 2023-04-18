@@ -125,7 +125,7 @@ function NavigationBar() {
                     </Nav>
                     <Form className="d-flex navbar-form" onSubmit={search}>
                         <Form.Control
-                            style={{ background: 'none' }}
+                            style={{ background: 'none', color: 'white' }}
                             type="search"
                             placeholder="Search"
                             className="me-2"
@@ -133,8 +133,6 @@ function NavigationBar() {
                             value={keyword}
                             onChange={(e) => setKeyword(e.target.value)}
                         />
-                        {/* <Button className="navbar-form-button" variant="outline-danger" type='submit'>Search</Button>
-                        <Button className="search-button" variant="danger" type='submit'></Button> */}
                         <Button className="navbar-form-button" variant="outline-danger" type='submit' style={{ display: isSmallScreen ? 'none' : 'block' }}>Search</Button>
                         <Button className="search-button" variant="danger" type='submit' style={{ fontSize: '13px', display: isSmallScreen ? 'block' : 'none' }}>Go</Button>
                     </Form>
