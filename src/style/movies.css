@@ -1,13 +1,91 @@
 /*Movies.js*/
-.movielistcard {
+/* .moviecard-list-containter .col-lg-8 {
+    display: flex;
+} */
 
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+}
+
+:root {
+    --card-height: 500px;
+    --card-width: calc(var(--card-height) / 1.5);
+}
+
+.moviecard-backgroud:hover {
+    transform: scale(1.05);
+    transition: 0.3s;
+    z-index: 3;
+    box-shadow: 4px 4px 10px 5px #bd4505;
+}
+
+.moviecard-backgroud:hover::before,
+.moviecard-backgroud:hover::after {
+    background-image: linear-gradient(var(--rotate), #fbd17c, #e99001 43%, #a14b0d);
+}
+
+
+.moviecard-backgroud {
+    width: 300px;
+    height: 500px;
+    /* padding: 3px; */
     margin: 10px;
+    position: relative;
+    z-index: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+}
+
+.moviecard-backgroud::before {
+    content: "";
+    width: 101%;
+    height: 101%;
+    border-radius: 4px;
+    background-image: linear-gradient(var(--rotate), #e7665d, #a71d13 43%, #530909);
+    position: absolute;
+    animation: spin 2.5s linear infinite;
+}
+
+.moviecard-backgroud::after {
+    content: "";
+    top: calc(var(--card-height) / 6);
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(var(--rotate), #e7665d, #a71d13 43%, #530909);
+
+    opacity: 1;
+    transition: opacity .5s;
+    animation: spin 2.5s linear infinite;
+    position: absolute;
+
+}
+
+@keyframes spin {
+    0% {
+        --rotate: 0deg;
+    }
+
+    100% {
+        --rotate: 360deg;
+    }
+}
+
+.movielistcard {
+    z-index: 1;
     background-size: cover;
     background-position: center center;
-    box-shadow: 8px 8px 20px 10px #530909;
+    /* box-shadow: 8px 8px 20px 10px #530909; */
     transition: 0.3s;
     border-radius: 5px;
 }
+
 
 @media (max-width: 992px) {
     .movielistcard {
@@ -36,14 +114,6 @@
 }
 
 
-
-
-.movielistcard:hover {
-    box-shadow: 4px 8px 20px 10px #a71d13;
-    transform: scale(1.02);
-    transition: all .4s;
-}
-
 .moviecard-list-container {
     display: flex;
     flex-direction: row;
@@ -62,7 +132,7 @@
     background: linear-gradient(to right, rgba(0, 0, 0, 0.5) 5%, transparent);
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 2;
     padding: 1rem;
 }
 
