@@ -41,36 +41,38 @@ const MovieCard = ({ item }) => {
         : `url(https://www.themoviedb.org/t/p/w355_and_h200_multi_faces${item.poster_path})`;
 
     return (
-        <div
-            className='moviecard'
-            onClick={() => showMovieDetail(item.id)}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            style={{ backgroundImage, cursor: 'pointer' }}
-        >
-            <div className='overlay'>
-                <h1>{item.title}</h1>
-                <div>
-                    {item.genre_ids.map(id =>
-                        <Badge key={id} bg="danger">{genreList.find(item => item.id === id).name}</Badge>
-                    )}
-                </div>
+        <div className='moviecard-backgroud-home'>
+            <div
+                className='moviecard'
+                onClick={() => showMovieDetail(item.id)}
+                onMouseEnter={handleMouseEnter}
+                onMouseLeave={handleMouseLeave}
+                style={{ backgroundImage, cursor: 'pointer' }}
+            >
+                <div className='overlay'>
+                    <h1>{item.title}</h1>
+                    <div>
+                        {item.genre_ids.map(id =>
+                            <Badge key={id} bg="danger">{genreList.find(item => item.id === id).name}</Badge>
+                        )}
+                    </div>
 
-                <div>
-                    <span><FontAwesomeIcon icon={faFilm} /> {item.vote_average} </span>
-                    <span> <FontAwesomeIcon icon={faUsers} /> {item.vote_count} </span>
-                    <span className='adultfont'> {item.adult ? "Adult" : "Under 18"} </span>
-                </div>
-                <p className='cardinfo-hide'>Hover for more informations<br />
-                    or Click for <strong><em><span
-                        style={{
-                            color: 'gold',
-                            textDecoration: 'underline solid gold',
+                    <div>
+                        <span><FontAwesomeIcon icon={faFilm} /> {item.vote_average} </span>
+                        <span> <FontAwesomeIcon icon={faUsers} /> {item.vote_count} </span>
+                        <span className='adultfont'> {item.adult ? "Adult" : "Under 18"} </span>
+                    </div>
+                    <p className='cardinfo-hide'>Hover for more informations<br />
+                        or Click for <strong><em><span
+                            style={{
+                                color: 'gold',
+                                textDecoration: 'underline solid gold',
 
-                        }}>
-                        {item.title}</span></em></strong>'s detail!<br />
-                    {"<< "}&nbsp;&nbsp;Slide to Left or Right!&nbsp;&nbsp;{" >>"}</p>
-            </div></div>
+                            }}>
+                            {item.title}</span></em></strong>'s detail!<br />
+                        {"<< "}&nbsp;&nbsp;Slide to Left or Right!&nbsp;&nbsp;{" >>"}</p>
+                </div></div></div>
+
     )
 }
 

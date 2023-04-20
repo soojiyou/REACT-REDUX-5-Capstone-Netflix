@@ -13,6 +13,7 @@
 .custom-carousel {
     overflow-x: hidden;
     position: relative;
+    /* margin-left: calc((100vw - var(--card-width) * 5) / 2); */
 }
 
 .custom-carousel .react-multiple-carousel__arrow {
@@ -26,16 +27,21 @@
     transition: all 0.5s;
 }
 
+.react-multi-carousel-track {}
+
 .movie-slide {
-    padding-bottom: 2rem;
+    /* padding-bottom: 2rem; */
     margin-top: 1rem;
     height: 250px;
     position: relative;
+    /* padding-right: 20px; */
+    width: 100%;
 }
+
 
 .movie-slide div ul li {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .moviecard {
@@ -45,6 +51,75 @@
     transition: transform 0.3s ease-in-out;
     transform-origin: center bottom;
     z-index: 1;
+    bottom: 0;
+    position: relative;
+    box-sizing: border-box;
+}
+
+/**/
+.moviecard-backgroud-home {
+    /* width: 355px; */
+    height: 200px;
+    margin: 10px;
+    position: relative;
+    z-index: 0;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    /* left: 15%; */
+}
+
+
+@property --rotate {
+    syntax: "<angle>";
+    initial-value: 132deg;
+    inherits: false;
+}
+
+:root {
+    --card-height: 500px;
+    --card-width: calc(var(--card-height) / 1.5);
+}
+
+.moviecard-backgroud-home:hover::before {
+    background-image: linear-gradient(var(--rotate), #fbd17c, #e99001 40%, #a14b0d);
+}
+
+.moviecard-backgroud-home:hover::after {
+    content: "";
+    top: calc(var(--card-height) / 6);
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    transform: scale(0.8);
+    filter: blur(calc(var(--card-height) / 6));
+    background-image: linear-gradient(var(--rotate), #fbd17c, #e99001 40%, #a14b0d);
+    opacity: 1;
+    transition: opacity .5s;
+    animation: spin 2.5s linear infinite;
+    position: absolute;
+}
+
+.moviecard-backgroud-home::before {
+    content: "";
+    width: 101%;
+    height: 101%;
+    border-radius: 4px;
+    background-image: linear-gradient(var(--rotate), #e7665d, #a71d13 40%, #530909);
+    position: absolute;
+    animation: spin 2.5s linear infinite;
+}
+
+
+@keyframes spin {
+    0% {
+        --rotate: 0deg;
+    }
+
+    100% {
+        --rotate: 360deg;
+    }
 }
 
 
@@ -73,8 +148,10 @@
 
 
 @media (min-width:500px) {
-    .moviecard:hover {
-        transform: translateY(-78px) scale(1.1) !important;
+    .moviecard-backgroud-home:hover .moviecard {
+        transform: scale(1) !important;
+        transition: all 0.5s;
+        /* transform: translateY(-78px) scale(1.1) !important; */
         height: 360px;
         max-width: 270px;
         max-height: max-content;
@@ -82,8 +159,8 @@
         background-size: cover;
         background-position: center center;
         transform-origin: center bottom;
-        margin-right: 13px;
-        box-shadow: 0px 4px 10px 10px #a71d13;
+        /* margin-right: 13px; */
+        /* box-shadow: 0px 4px 10px 10px #a71d13; */
         border-radius: 5px;
         overflow: visible !important;
     }
@@ -102,6 +179,14 @@
     .carddirec-hide {
         display: none;
     }
+
+    .moviecard-backgroud-home:hover {
+        height: 360px;
+        max-width: 100%;
+        transform: translateY(-78px) scale(1.1) !important;
+        transition: all 0.5s;
+    }
+
 
 }
 
