@@ -146,11 +146,54 @@
 }
 
 
-@media (min-width:500px) {
+
+@media (min-width:1590px) {
     .moviecard-backgroud-home:hover .moviecard {
         transform: scale(1) !important;
         transition: all 0.5s;
-        /* transform: translateY(-78px) scale(1.1) !important; */
+        height: 500px !important;
+        max-width: 350px !important;
+        max-height: max-content;
+        z-index: 10 !important;
+        background-size: cover;
+        background-position: center center;
+        transform-origin: center bottom;
+        border-radius: 5px;
+        overflow: visible !important;
+    }
+
+    .custom-carousel:hover .moviecard {
+        overflow: visible;
+    }
+
+    .custom-carousel:hover {
+        overflow: visible;
+        position: relative;
+        z-index: 1;
+    }
+
+    .cardinfo-hide,
+    .carddirec-hide {
+        display: none;
+    }
+
+
+    .moviecard-backgroud-home:hover {
+        height: 500px !important;
+        max-width: 100%;
+        transform: translateY(-148px) scale(1.1) !important;
+        transition: all 0.5s;
+
+    }
+
+
+}
+
+
+@media (min-width:500px) and (max-width:1590px) {
+    .moviecard-backgroud-home:hover .moviecard {
+        transform: scale(1) !important;
+        transition: all 0.5s;
         height: 360px;
         max-width: 270px;
         max-height: max-content;
@@ -158,8 +201,6 @@
         background-size: cover;
         background-position: center center;
         transform-origin: center bottom;
-        /* margin-right: 13px; */
-        /* box-shadow: 0px 4px 10px 10px #a71d13; */
         border-radius: 5px;
         overflow: visible !important;
     }
@@ -237,7 +278,7 @@
     .cardinfo-hide {
         opacity: 0.6;
         text-align: center;
-        bottom: -10%;
+        bottom: -20%;
         position: relative;
         font-size: 14px;
     }
@@ -261,4 +302,17 @@
     .moviecard:hover .cardinfo-hide {
         opacity: 0;
     }
+}
+
+@media (max-width:375px) {
+    .overlay h1 {
+        text-align: start;
+        opacity: 1 !important;
+    }
+
+    .moviecard-backgroud-home,
+    .moviecard {
+        border-radius: 10px;
+    }
+
 }
