@@ -41,6 +41,7 @@
 .movie-slide div ul li {
     display: flex;
     justify-content: flex-start;
+    left: -9px;
 }
 
 .moviecard {
