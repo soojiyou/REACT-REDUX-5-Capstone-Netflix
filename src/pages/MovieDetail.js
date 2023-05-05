@@ -6,6 +6,7 @@ import { Container, Row, Col, Badge, Modal, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilm, faUsers } from '@fortawesome/free-solid-svg-icons'
 import RecommandCard from '../components/RecommandCard';
+import Contact from '../components/Contact';
 import { Tab, Tabs } from 'react-bootstrap';
 import ClipLoader from "react-spinners/ClipLoader";
 
@@ -118,7 +119,7 @@ const MovieDetail = ({ item }) => {
                             </div>
                         </Tab>
                         <Tab className='tabsstyle-tab' eventKey="contact" title="Contact">
-                            <p>Content for Contact tab</p>
+                            <div><Contact /></div>
                         </Tab>
                     </Tabs>
 

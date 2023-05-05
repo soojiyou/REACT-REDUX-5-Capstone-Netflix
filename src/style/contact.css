@@ -1,0 +1,66 @@
+.contactconatiner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contactcard {
+    width: 50%;
+    height: max-content;
+    background-color: rgba(168, 168, 168, 0.527);
+    border-radius: 10px;
+    text-align: center;
+    margin: 30px 0 50px 0;
+}
+
+.contactcard h1 {
+    margin-top: 20px;
+}
+
+@media (max-width:500px) {
+    .contactcard {
+        width: 80%;
+        height: 200px;
+    }
+}
+
+.contacticon {
+    display: grid;
+    grid-template:
+        "item1" 1fr
+        "item2" 1fr;
+    font-size: 20px;
+    justify-items: center;
+    margin: 30px 0;
+    gap: 5px;
+}
+
+.buttonicon {
+    width: 80%;
+    justify-content: center;
+    display: flex;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+
+}
+
+.buttonicon a {
+    text-decoration: none;
+}
+
+.github {
+    background-color: rgb(73, 71, 71);
+}
+
+.github a {
+    color: white;
+}
+
+.linkedin {
+    background-color: rgb(29, 115, 185);
+}
+
+.linkedin a {
+    color: white;
+}

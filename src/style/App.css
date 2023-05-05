@@ -3,6 +3,7 @@
 @import './moviedetail.css';
 @import './movies.css';
 @import './myfilter.css';
+@import './contact.css';
 
 /*loading spinner*/
 .loading {
