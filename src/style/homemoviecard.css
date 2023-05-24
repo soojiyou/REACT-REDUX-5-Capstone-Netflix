@@ -27,6 +27,14 @@
 }
 
 
+
+/**/
+.movie-slide div ul li {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(355px, 1fr));
+}
+
+/**/
 .movie-slide {
     margin-top: 1rem;
     height: 250px;
@@ -34,12 +42,11 @@
     width: 100%;
 }
 
-
-.movie-slide div ul li {
+/* .movie-slide div ul li {
     display: flex;
     justify-content: flex-start;
     left: -9px;
-}
+} */
 
 .moviecard {
     width: 355px;
@@ -218,7 +225,7 @@
 
     .moviecard-backgroud-home:hover {
         height: 360px;
-        max-width: 100%;
+        max-width: fit-content;
         transform: translateY(-78px) scale(1.1) !important;
         transition: all 0.5s;
     }
